@@ -1,0 +1,8 @@
+.app_signup{
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+}
+.app_signup input{
+    margin: 5px;
+}
