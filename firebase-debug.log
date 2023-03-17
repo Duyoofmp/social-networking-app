@@ -1,0 +1,125 @@
+[debug] [2023-03-17T20:43:12.373Z] ----------------------------------------------------------------------
+[debug] [2023-03-17T20:43:12.375Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\DUYOOF\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2023-03-17T20:43:12.376Z] CLI Version:   11.24.1
+[debug] [2023-03-17T20:43:12.376Z] Platform:      win32
+[debug] [2023-03-17T20:43:12.376Z] Node Version:  v18.3.0
+[debug] [2023-03-17T20:43:12.382Z] Time:          Sat Mar 18 2023 02:13:12 GMT+0530 (India Standard Time)
+[debug] [2023-03-17T20:43:12.383Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-03-17T20:43:12.463Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-03-17T20:43:12.464Z] > authorizing via signed-in user (duyoofibnudileep@gmail.com)
+[debug] [2023-03-17T20:43:12.464Z] [iam] checking project social-networking-app-8abf1 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2023-03-17T20:43:12.467Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/social-networking-app-8abf1:testIamPermissions [none]
+[debug] [2023-03-17T20:43:12.467Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/social-networking-app-8abf1:testIamPermissions x-goog-quota-user=projects/social-networking-app-8abf1
+[debug] [2023-03-17T20:43:12.467Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/social-networking-app-8abf1:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-03-17T20:43:15.220Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/social-networking-app-8abf1:testIamPermissions 200
+[debug] [2023-03-17T20:43:15.220Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/social-networking-app-8abf1:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-03-17T20:43:15.221Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/social-networking-app-8abf1 [none]
+[debug] [2023-03-17T20:43:16.030Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/social-networking-app-8abf1 200
+[debug] [2023-03-17T20:43:16.030Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/social-networking-app-8abf1 {"projectId":"social-networking-app-8abf1","projectNumber":"135362062974","displayName":"social networking app","name":"projects/social-networking-app-8abf1","resources":{"hostingSite":"social-networking-app-8abf1","storageBucket":"social-networking-app-8abf1.appspot.com","locationId":"asia-south1"},"state":"ACTIVE","etag":"1_f25fb143-cb5f-425c-a878-9f4b1c4d885e"}
+[info] 
+[info] === Deploying to 'social-networking-app-8abf1'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2023-03-17T20:43:16.041Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/social-networking-app-8abf1/versions [none]
+[debug] [2023-03-17T20:43:16.042Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/social-networking-app-8abf1/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2023-03-17T20:43:18.219Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/social-networking-app-8abf1/versions 200
+[debug] [2023-03-17T20:43:18.219Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/social-networking-app-8abf1/versions {"name":"projects/135362062974/sites/social-networking-app-8abf1/versions/a8c4a27fe285abf2","status":"CREATED","config":{},"labels":{"deployment-tool":"cli-firebase"}}
+[info] i  hosting[social-networking-app-8abf1]: beginning deploy... 
+[info] i  hosting[social-networking-app-8abf1]: found 11 files in build 
+[debug] [2023-03-17T20:43:18.236Z] [hosting] uploading with 200 concurrency
+[debug] [2023-03-17T20:43:18.238Z] [hosting] hash cache [YnVpbGQ] not populated
+[debug] [2023-03-17T20:43:18.942Z] [hosting] hash cache [YnVpbGQ] stored for 11 files
+[debug] [2023-03-17T20:43:18.943Z] [hosting][hash queue][FINAL] {"max":689,"min":13,"avg":81,"active":0,"complete":11,"success":11,"errored":0,"retried":0,"total":11,"elapsed":702}
+[debug] [2023-03-17T20:43:18.944Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/135362062974/sites/social-networking-app-8abf1/versions/a8c4a27fe285abf2:populateFiles [none]
+[debug] [2023-03-17T20:43:18.944Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/135362062974/sites/social-networking-app-8abf1/versions/a8c4a27fe285abf2:populateFiles {"files":{"/index.html":"65c733fd5fcfc2b7de2097ab7413cbd7c28620f52ab0b3b9f9d12fb9ccdf0679","/favicon.ico":"eae62e993eb980ec8a25058c39d5a51feab118bd2100c4deebb2a9c158ec11f9","/manifest.json":"aff3449bdc238776f5d6d967f19ec491b36aed5fb7f23ccff6500736fd58494a","/logo192.png":"3ee59515172ee198f3be375979df15ac5345183e656720a381b8872b2a39dc8b","/static/css/main.2773a45e.css":"ffa50fb752fb13c9f22a298066f7ad6d7fba799ad54f4b1421862d7d1b613fc6","/static/css/main.2773a45e.css.map":"07d4669a3df144b81d299fa3faef2c405be4d48d8275bc2ad566e9403af441aa","/static/js/main.6521e2ac.js.LICENSE.txt":"8accc9fdc2a4d0110d1f408367d53aeda537aaccc470a862f658d67db9323467","/logo512.png":"ee7e2f3fdb8209c4b6fd7bef6ba50d1b9dba30a25bb5c3126df057e1cb6f5331","/asset-manifest.json":"3c9bbd223b1eb2993b9f71c8467644d0bf60989f24c76704784905291858913e","/static/js/main.6521e2ac.js":"b0b41d64f32786d0e1be58298dd6f6cfc8c2f780cda3ac04d1ecf9f83401904f","/static/js/main.6521e2ac.js.map":"f3df79456e33196ff06901a4b0589922670732627831c843e9b5ffa3b56c36eb"}}
+[debug] [2023-03-17T20:43:19.842Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/135362062974/sites/social-networking-app-8abf1/versions/a8c4a27fe285abf2:populateFiles 200
+[debug] [2023-03-17T20:43:19.842Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/135362062974/sites/social-networking-app-8abf1/versions/a8c4a27fe285abf2:populateFiles {"uploadRequiredHashes":["f3df79456e33196ff06901a4b0589922670732627831c843e9b5ffa3b56c36eb","07d4669a3df144b81d299fa3faef2c405be4d48d8275bc2ad566e9403af441aa","8accc9fdc2a4d0110d1f408367d53aeda537aaccc470a862f658d67db9323467","ee7e2f3fdb8209c4b6fd7bef6ba50d1b9dba30a25bb5c3126df057e1cb6f5331","aff3449bdc238776f5d6d967f19ec491b36aed5fb7f23ccff6500736fd58494a","ffa50fb752fb13c9f22a298066f7ad6d7fba799ad54f4b1421862d7d1b613fc6","3ee59515172ee198f3be375979df15ac5345183e656720a381b8872b2a39dc8b","65c733fd5fcfc2b7de2097ab7413cbd7c28620f52ab0b3b9f9d12fb9ccdf0679","eae62e993eb980ec8a25058c39d5a51feab118bd2100c4deebb2a9c158ec11f9","b0b41d64f32786d0e1be58298dd6f6cfc8c2f780cda3ac04d1ecf9f83401904f","3c9bbd223b1eb2993b9f71c8467644d0bf60989f24c76704784905291858913e"],"uploadUrl":"https://upload-firebasehosting.googleapis.com/upload/sites/social-networking-app-8abf1/versions/a8c4a27fe285abf2/files"}
+[debug] [2023-03-17T20:43:19.845Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/social-networking-app-8abf1/versions/a8c4a27fe285abf2/files/f3df79456e33196ff06901a4b0589922670732627831c843e9b5ffa3b56c36eb [none]
+[debug] [2023-03-17T20:43:19.845Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/social-networking-app-8abf1/versions/a8c4a27fe285abf2/files/f3df79456e33196ff06901a4b0589922670732627831c843e9b5ffa3b56c36eb [stream]
+[debug] [2023-03-17T20:43:19.848Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/social-networking-app-8abf1/versions/a8c4a27fe285abf2/files/07d4669a3df144b81d299fa3faef2c405be4d48d8275bc2ad566e9403af441aa [none]
+[debug] [2023-03-17T20:43:19.848Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/social-networking-app-8abf1/versions/a8c4a27fe285abf2/files/07d4669a3df144b81d299fa3faef2c405be4d48d8275bc2ad566e9403af441aa [stream]
+[debug] [2023-03-17T20:43:19.850Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/social-networking-app-8abf1/versions/a8c4a27fe285abf2/files/8accc9fdc2a4d0110d1f408367d53aeda537aaccc470a862f658d67db9323467 [none]
+[debug] [2023-03-17T20:43:19.850Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/social-networking-app-8abf1/versions/a8c4a27fe285abf2/files/8accc9fdc2a4d0110d1f408367d53aeda537aaccc470a862f658d67db9323467 [stream]
+[debug] [2023-03-17T20:43:19.852Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/social-networking-app-8abf1/versions/a8c4a27fe285abf2/files/ee7e2f3fdb8209c4b6fd7bef6ba50d1b9dba30a25bb5c3126df057e1cb6f5331 [none]
+[debug] [2023-03-17T20:43:19.852Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/social-networking-app-8abf1/versions/a8c4a27fe285abf2/files/ee7e2f3fdb8209c4b6fd7bef6ba50d1b9dba30a25bb5c3126df057e1cb6f5331 [stream]
+[debug] [2023-03-17T20:43:19.854Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/social-networking-app-8abf1/versions/a8c4a27fe285abf2/files/aff3449bdc238776f5d6d967f19ec491b36aed5fb7f23ccff6500736fd58494a [none]
+[debug] [2023-03-17T20:43:19.854Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/social-networking-app-8abf1/versions/a8c4a27fe285abf2/files/aff3449bdc238776f5d6d967f19ec491b36aed5fb7f23ccff6500736fd58494a [stream]
+[debug] [2023-03-17T20:43:19.856Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/social-networking-app-8abf1/versions/a8c4a27fe285abf2/files/ffa50fb752fb13c9f22a298066f7ad6d7fba799ad54f4b1421862d7d1b613fc6 [none]
+[debug] [2023-03-17T20:43:19.856Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/social-networking-app-8abf1/versions/a8c4a27fe285abf2/files/ffa50fb752fb13c9f22a298066f7ad6d7fba799ad54f4b1421862d7d1b613fc6 [stream]
+[debug] [2023-03-17T20:43:19.857Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/social-networking-app-8abf1/versions/a8c4a27fe285abf2/files/3ee59515172ee198f3be375979df15ac5345183e656720a381b8872b2a39dc8b [none]
+[debug] [2023-03-17T20:43:19.857Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/social-networking-app-8abf1/versions/a8c4a27fe285abf2/files/3ee59515172ee198f3be375979df15ac5345183e656720a381b8872b2a39dc8b [stream]
+[debug] [2023-03-17T20:43:19.859Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/social-networking-app-8abf1/versions/a8c4a27fe285abf2/files/65c733fd5fcfc2b7de2097ab7413cbd7c28620f52ab0b3b9f9d12fb9ccdf0679 [none]
+[debug] [2023-03-17T20:43:19.859Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/social-networking-app-8abf1/versions/a8c4a27fe285abf2/files/65c733fd5fcfc2b7de2097ab7413cbd7c28620f52ab0b3b9f9d12fb9ccdf0679 [stream]
+[debug] [2023-03-17T20:43:19.861Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/social-networking-app-8abf1/versions/a8c4a27fe285abf2/files/eae62e993eb980ec8a25058c39d5a51feab118bd2100c4deebb2a9c158ec11f9 [none]
+[debug] [2023-03-17T20:43:19.861Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/social-networking-app-8abf1/versions/a8c4a27fe285abf2/files/eae62e993eb980ec8a25058c39d5a51feab118bd2100c4deebb2a9c158ec11f9 [stream]
+[debug] [2023-03-17T20:43:19.863Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/social-networking-app-8abf1/versions/a8c4a27fe285abf2/files/b0b41d64f32786d0e1be58298dd6f6cfc8c2f780cda3ac04d1ecf9f83401904f [none]
+[debug] [2023-03-17T20:43:19.863Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/social-networking-app-8abf1/versions/a8c4a27fe285abf2/files/b0b41d64f32786d0e1be58298dd6f6cfc8c2f780cda3ac04d1ecf9f83401904f [stream]
+[debug] [2023-03-17T20:43:19.865Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/social-networking-app-8abf1/versions/a8c4a27fe285abf2/files/3c9bbd223b1eb2993b9f71c8467644d0bf60989f24c76704784905291858913e [none]
+[debug] [2023-03-17T20:43:19.866Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/social-networking-app-8abf1/versions/a8c4a27fe285abf2/files/3c9bbd223b1eb2993b9f71c8467644d0bf60989f24c76704784905291858913e [stream]
+[debug] [2023-03-17T20:43:19.869Z] [hosting][populate queue][FINAL] {"max":909,"min":909,"avg":909,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":933}
+[debug] [2023-03-17T20:43:19.869Z] [hosting] uploads queued: 11
+[debug] [2023-03-17T20:43:26.805Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/social-networking-app-8abf1/versions/a8c4a27fe285abf2/files/aff3449bdc238776f5d6d967f19ec491b36aed5fb7f23ccff6500736fd58494a 200
+[debug] [2023-03-17T20:43:26.805Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/social-networking-app-8abf1/versions/a8c4a27fe285abf2/files/aff3449bdc238776f5d6d967f19ec491b36aed5fb7f23ccff6500736fd58494a [stream]
+[debug] [2023-03-17T20:43:27.153Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/social-networking-app-8abf1/versions/a8c4a27fe285abf2/files/07d4669a3df144b81d299fa3faef2c405be4d48d8275bc2ad566e9403af441aa 200
+[debug] [2023-03-17T20:43:27.153Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/social-networking-app-8abf1/versions/a8c4a27fe285abf2/files/07d4669a3df144b81d299fa3faef2c405be4d48d8275bc2ad566e9403af441aa [stream]
+[debug] [2023-03-17T20:43:27.295Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/social-networking-app-8abf1/versions/a8c4a27fe285abf2/files/8accc9fdc2a4d0110d1f408367d53aeda537aaccc470a862f658d67db9323467 200
+[debug] [2023-03-17T20:43:27.295Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/social-networking-app-8abf1/versions/a8c4a27fe285abf2/files/8accc9fdc2a4d0110d1f408367d53aeda537aaccc470a862f658d67db9323467 [stream]
+[debug] [2023-03-17T20:43:27.500Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/social-networking-app-8abf1/versions/a8c4a27fe285abf2/files/eae62e993eb980ec8a25058c39d5a51feab118bd2100c4deebb2a9c158ec11f9 200
+[debug] [2023-03-17T20:43:27.500Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/social-networking-app-8abf1/versions/a8c4a27fe285abf2/files/eae62e993eb980ec8a25058c39d5a51feab118bd2100c4deebb2a9c158ec11f9 [stream]
+[debug] [2023-03-17T20:43:27.587Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/social-networking-app-8abf1/versions/a8c4a27fe285abf2/files/65c733fd5fcfc2b7de2097ab7413cbd7c28620f52ab0b3b9f9d12fb9ccdf0679 200
+[debug] [2023-03-17T20:43:27.588Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/social-networking-app-8abf1/versions/a8c4a27fe285abf2/files/65c733fd5fcfc2b7de2097ab7413cbd7c28620f52ab0b3b9f9d12fb9ccdf0679 [stream]
+[debug] [2023-03-17T20:43:27.602Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/social-networking-app-8abf1/versions/a8c4a27fe285abf2/files/ee7e2f3fdb8209c4b6fd7bef6ba50d1b9dba30a25bb5c3126df057e1cb6f5331 200
+[debug] [2023-03-17T20:43:27.602Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/social-networking-app-8abf1/versions/a8c4a27fe285abf2/files/ee7e2f3fdb8209c4b6fd7bef6ba50d1b9dba30a25bb5c3126df057e1cb6f5331 [stream]
+[debug] [2023-03-17T20:43:27.653Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/social-networking-app-8abf1/versions/a8c4a27fe285abf2/files/ffa50fb752fb13c9f22a298066f7ad6d7fba799ad54f4b1421862d7d1b613fc6 200
+[debug] [2023-03-17T20:43:27.654Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/social-networking-app-8abf1/versions/a8c4a27fe285abf2/files/ffa50fb752fb13c9f22a298066f7ad6d7fba799ad54f4b1421862d7d1b613fc6 [stream]
+[debug] [2023-03-17T20:43:27.681Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/social-networking-app-8abf1/versions/a8c4a27fe285abf2/files/3c9bbd223b1eb2993b9f71c8467644d0bf60989f24c76704784905291858913e 200
+[debug] [2023-03-17T20:43:27.681Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/social-networking-app-8abf1/versions/a8c4a27fe285abf2/files/3c9bbd223b1eb2993b9f71c8467644d0bf60989f24c76704784905291858913e [stream]
+[debug] [2023-03-17T20:43:28.115Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/social-networking-app-8abf1/versions/a8c4a27fe285abf2/files/3ee59515172ee198f3be375979df15ac5345183e656720a381b8872b2a39dc8b 200
+[debug] [2023-03-17T20:43:28.115Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/social-networking-app-8abf1/versions/a8c4a27fe285abf2/files/3ee59515172ee198f3be375979df15ac5345183e656720a381b8872b2a39dc8b [stream]
+[debug] [2023-03-17T20:43:28.140Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/social-networking-app-8abf1/versions/a8c4a27fe285abf2/files/b0b41d64f32786d0e1be58298dd6f6cfc8c2f780cda3ac04d1ecf9f83401904f 200
+[debug] [2023-03-17T20:43:28.140Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/social-networking-app-8abf1/versions/a8c4a27fe285abf2/files/b0b41d64f32786d0e1be58298dd6f6cfc8c2f780cda3ac04d1ecf9f83401904f [stream]
+[debug] [2023-03-17T20:43:31.082Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/social-networking-app-8abf1/versions/a8c4a27fe285abf2/files/f3df79456e33196ff06901a4b0589922670732627831c843e9b5ffa3b56c36eb 200
+[debug] [2023-03-17T20:43:31.083Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/social-networking-app-8abf1/versions/a8c4a27fe285abf2/files/f3df79456e33196ff06901a4b0589922670732627831c843e9b5ffa3b56c36eb [stream]
+[debug] [2023-03-17T20:43:31.083Z] [hosting][upload queue][FINAL] {"max":11240,"min":6962,"avg":8030,"active":0,"complete":11,"success":11,"errored":0,"retried":0,"total":11,"elapsed":11240}
+[info] +  hosting[social-networking-app-8abf1]: file upload complete 
+[debug] [2023-03-17T20:43:31.087Z] [hosting] deploy completed after 12864ms
+[debug] [2023-03-17T20:43:31.098Z] [
+  {
+    "config": {
+      "public": "build",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "site": "social-networking-app-8abf1"
+    },
+    "version": "projects/135362062974/sites/social-networking-app-8abf1/versions/a8c4a27fe285abf2"
+  }
+]
+[info] i  hosting[social-networking-app-8abf1]: finalizing version... 
+[debug] [2023-03-17T20:43:31.103Z] >>> [apiv2][query] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/social-networking-app-8abf1/versions/a8c4a27fe285abf2 updateMask=status%2Cconfig
+[debug] [2023-03-17T20:43:31.103Z] >>> [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/social-networking-app-8abf1/versions/a8c4a27fe285abf2 {"status":"FINALIZED","config":{}}
+[debug] [2023-03-17T20:43:32.216Z] <<< [apiv2][status] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/social-networking-app-8abf1/versions/a8c4a27fe285abf2 200
+[debug] [2023-03-17T20:43:32.217Z] <<< [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/social-networking-app-8abf1/versions/a8c4a27fe285abf2 {"name":"projects/135362062974/sites/social-networking-app-8abf1/versions/a8c4a27fe285abf2","status":"FINALIZED","config":{},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2023-03-17T20:42:28.782272Z","createUser":{"email":"duyoofibnudileep@gmail.com"},"finalizeTime":"2023-03-17T20:42:43.799817Z","finalizeUser":{"email":"duyoofibnudileep@gmail.com"}}
+[debug] [2023-03-17T20:43:32.217Z] [hosting] finalized version for social-networking-app-8abf1:[object Object]
+[info] +  hosting[social-networking-app-8abf1]: version finalized 
+[info] i  hosting[social-networking-app-8abf1]: releasing new version... 
+[debug] [2023-03-17T20:43:32.219Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/social-networking-app-8abf1/channels/live/releases versionName=projects%2F135362062974%2Fsites%2Fsocial-networking-app-8abf1%2Fversions%2Fa8c4a27fe285abf2
+[debug] [2023-03-17T20:43:32.220Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/social-networking-app-8abf1/channels/live/releases {}
+[debug] [2023-03-17T20:43:33.549Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/social-networking-app-8abf1/channels/live/releases 200
+[debug] [2023-03-17T20:43:33.549Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/social-networking-app-8abf1/channels/live/releases {"name":"projects/135362062974/sites/social-networking-app-8abf1/channels/live/releases/1679085764559000","version":{"name":"projects/135362062974/sites/social-networking-app-8abf1/versions/a8c4a27fe285abf2","status":"FINALIZED","config":{},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2023-03-17T20:42:28.782272Z","createUser":{"email":"duyoofibnudileep@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/AGNmyxaSi76Kq_zFJoJvSwrE88GhlSYBr5JFwP-Y1aBCKA"},"finalizeTime":"2023-03-17T20:42:43.799817Z","finalizeUser":{"email":"duyoofibnudileep@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/AGNmyxaSi76Kq_zFJoJvSwrE88GhlSYBr5JFwP-Y1aBCKA"}},"type":"DEPLOY","releaseTime":"2023-03-17T20:42:44.559Z","releaseUser":{"email":"duyoofibnudileep@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/AGNmyxaSi76Kq_zFJoJvSwrE88GhlSYBr5JFwP-Y1aBCKA"}}
+[debug] [2023-03-17T20:43:33.550Z] [hosting] release: {"name":"projects/135362062974/sites/social-networking-app-8abf1/channels/live/releases/1679085764559000","version":{"name":"projects/135362062974/sites/social-networking-app-8abf1/versions/a8c4a27fe285abf2","status":"FINALIZED","config":{},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2023-03-17T20:42:28.782272Z","createUser":{"email":"duyoofibnudileep@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/AGNmyxaSi76Kq_zFJoJvSwrE88GhlSYBr5JFwP-Y1aBCKA"},"finalizeTime":"2023-03-17T20:42:43.799817Z","finalizeUser":{"email":"duyoofibnudileep@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/AGNmyxaSi76Kq_zFJoJvSwrE88GhlSYBr5JFwP-Y1aBCKA"}},"type":"DEPLOY","releaseTime":"2023-03-17T20:42:44.559Z","releaseUser":{"email":"duyoofibnudileep@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/AGNmyxaSi76Kq_zFJoJvSwrE88GhlSYBr5JFwP-Y1aBCKA"}}
+[info] +  hosting[social-networking-app-8abf1]: release complete 
+[info] 
+[info] +  Deploy complete! 
+[info] 
+[info] Project Console: https://console.firebase.google.com/project/social-networking-app-8abf1/overview
+[info] Hosting URL: https://social-networking-app-8abf1.web.app
+[debug] [2023-03-17T20:43:40.691Z] Error: Timed out.
+    at Timeout._onTimeout (C:\Users\DUYOOF\AppData\Roaming\npm\node_modules\firebase-tools\lib\utils.js:253:49)
+    at listOnTimeout (node:internal/timers:564:17)
+    at process.processTimers (node:internal/timers:507:7)
+[error] 
+[error] Error: An unexpected error has occurred.
