@@ -1,75 +1,79 @@
-import React, { useState,useEffect } from 'react'
-import { signOut } from 'firebase/auth'
-import { auth,db} from '../config'
-import Profile from '../Profile';
-import {
-  Avatar,
-  Link
-} from "@mui/material";
+import React, { useState, useEffect } from "react";
+import { signOut } from "firebase/auth";
+import { auth, db } from "../config";
+import Profile from "../Profile";
+import { Button, Avatar, Link } from "@mui/material";
 import StickyBox from "react-sticky-box";
-import { onSnapshot,doc ,collection,query,where} from 'firebase/firestore';
-import './Home.css'
-import { useNavigate } from 'react-router-dom';
-
- 
-
+import { onSnapshot, doc, collection, query, where,getDocs,getDoc } from "firebase/firestore";
+import "./Home.css";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
   const [user, setUser] = useState(null);
+  const [username, setUsername] = useState("");
   const [name, setName] = useState("");
+  const [friendscount, setFriendsCount] = useState(0);
+
+
   const [dp, setDp] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [prfl, setPrfl] = useState(false);
 
-  const navigate=useNavigate();
-  
+  const navigate = useNavigate();
 
-useEffect( () => {
-  const unsubscribe = auth.onAuthStateChanged( (authuser) => {
-    if (authuser) {
-      setUser(authuser);
-      console.log(authuser.uid);
-      
-       onSnapshot(doc(db, "Users", authuser.uid), (snap) => {
-        if (snap) {
-          console.log("hj")
-          setDp(snap.data().profilePic);
-          setName(snap.data().userName);
-          console.log(dp);
-        }
-    },(err)=>{
-      console.log(err)
+  useEffect(() => {
+    const prom=[];
+    const unsubscribe = auth.onAuthStateChanged(async(authuser) => {
+      if (authuser) {
+        setUser(authuser);
+        console.log(authuser.uid);
+
+       prom.push(onSnapshot(
+          doc(db, "Users", authuser.uid),
+          (snap) => {
+            if (snap) {
+              console.log("hj");
+              setDp(snap.data().profilePic);
+              setUsername(snap.data().userName);
+              setName(snap.data().name);
+              console.log(dp);
+            }
+          } ));
+          const docsOfUser = await getDocs(collection(doc(db, "Users", authuser.uid), "Friends"));
+         setFriendsCount(docsOfUser.docs.length)
+
+      } else {
+        setUser(null);
+      }
     });
-     
-  
-    } else {
-      setUser(null);
-    }
-  });
-  return () => unsubscribe();
-}, [user]);
+    return () => unsubscribe();
+  }, [user]);
 
-
-const handleSearch = (event) => {
-  const searchQuery = event.target.value;
-  const q = query(collection(db, "Users"), where("Keywords", "array-contains" ,searchQuery));
-const unsubscribe = onSnapshot(q, (querySnapshot) => {
+  const handleSearch = (event) => {
+    const searchQuery = event.target.value;
+    const q = query(
+      collection(db, "Users"),
+      where("Keywords", "array-contains", searchQuery)
+    );
+    const unsubscribe = onSnapshot(q, (querySnapshot) => {
       const results = [];
       querySnapshot.forEach((doc) => {
-        results.push({...doc.data(),uid:doc.id});
+        results.push({ ...doc.data(), uid: doc.id });
       });
       setSearchResults(results);
     });
-}
-const prof=(uid)=>{
-  console.log(uid)
- navigate('/fprofile',{state:{uid:uid}})
-}
+  };
+  const prof = (uid) => {
+    console.log(uid);
+    navigate("/fprofile", { state: { uid: uid } });
+  };
+  const friendsList=async ()=>{
+    navigate("/friends");
+  }
 
   return (
-   
     <div className="app">
-       {prfl ? (
+      {prfl ? (
         <Profile />
       ) : (
         <div className="App">
@@ -81,35 +85,36 @@ const prof=(uid)=>{
                 alt=""
               />
             </a>
-          <div className='search-container'>
-            <div className='search-inner'>
-            <input type="text" onChange={handleSearch} className="app__headersearch" placeholder="Search" />
-            <div className='dropdown'>
-              <div className='dropdown-row'>
-        {searchResults.map((result) => (
-          
-          <div className='inndiv' onClick={()=>{prof(result.uid)}} key={result.uid}><img className='simg' src={result.profilePic}></img><span>{result.userName}</span></div>
-          
-        ))}
-        </div>
-        </div>
-        </div>
-      </div>
-            {user ? (
-              <div className="app__headername">
-                <div className="app__headerbtns">
-                  
-                     
-
+            
+            <div className="search-container">
+              <div className="search-inner">
+                <input
+                  type="text"
+                  onChange={handleSearch}
+                  className="app__headersearch"
+                  placeholder="Search"
+                />
+                <div className="dropdown">
+                  <div className="dropdown-row">
+                    {searchResults.map((result) => (
+                      <div
+                        className="inndiv"
+                        onClick={() => {
+                          prof(result.uid);
+                        }}
+                        key={result.uid}
+                      >
+                        <img className="simg" src={result.profilePic}></img>
+                        <span>{result.userName}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
-            ) : null}
+            </div>
           </div>
 
-         
-        
           <div className="app__posts">
-           
             {user && (
               <span>
                 <StickyBox offsetTop={150} offsetBottom={100}>
@@ -120,18 +125,24 @@ const prof=(uid)=>{
                     <span>
                       <h3 className="app__user">
                         <a onClick={() => setPrfl(true)}>
-                          {user ? name : "dummy"}
+                          {user ? username : "dummy"}
                         </a>
                       </h3>{" "}
-                      <p className="app__username">{user.userName}</p>
+                      <p className="app__username">{name}</p>
                     </span>
                     <span>
-                      <button
+                    <Button
+                        className="app__logout"
+                        onClick={friendsList}
+                      >
+                        {friendscount} friends
+                      </Button>
+                      <Button
                         className="app__logout"
                         onClick={() => auth.signOut()}
                       >
                         Log Out
-                      </button>
+                      </Button>
                     </span>
                   </div>
                   <footer className="app__footer">
@@ -149,9 +160,7 @@ const prof=(uid)=>{
             )}
           </div>
 
-          {user ? (
-            <Profile/>
-          ) : null}
+          {user ? <Profile /> : null}
         </div>
       )}
     </div>

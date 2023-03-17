@@ -19,9 +19,13 @@ export const Fprofile = () => {
     const [user, setUser] = useState(null);
     const [uid, setUid] = useState(null);
 
-    const [name, setName] = useState("");
+    const [username, setUsername] = useState("");
+    const [name,setName]=useState("")
     const [dp, setDp] = useState("");
     const [prfl, setPrfl] = useState("");
+
+    const [mutuals, setMutuals] = useState(0);
+    
     const [followbtn,setFollowBtn]=useState(true)
     useEffect( () => {
 
@@ -36,7 +40,8 @@ export const Fprofile = () => {
                 if (snap) {
                   console.log("hai "+uid)
                   setDp(snap.data().profilePic);
-                  setName(snap.data().userName);
+                  setUsername(snap.data().userName);
+                  setName(snap.data().name)
                   console.log(dp);
                 }
             }));
@@ -82,6 +87,9 @@ export const Fprofile = () => {
     const goBack=()=>{
         navigate(-1)
     }
+    const seeMutuals=()=>{
+        navigate("/mutuals",{state:{uid:uid}})
+    }
 
   return (
    
@@ -96,11 +104,12 @@ export const Fprofile = () => {
                     <span>
                       <h3 className="app__user">
                         <a onClick={() => setPrfl(true)}>
-                          {user ? name : "dummy"}
+                          {user ? username : "dummy"}
                         </a>&nbsp;&nbsp;
                         {followbtn? <Button onClick={followHandler} className="follow">follow</Button>: <Button onClick={followHandler} className="follow">unfollow</Button> }
-                      </h3>{" "}
-                      <p className="app__username"></p>
+                      </h3>{""}
+                      <p className="app__username">{name}</p>
+                       <span><p onClick={seeMutuals} className="app__username"><b>see mutual friends</b></p> </span>
                     </span>
                   </div>
                   <footer className="app__footer">
