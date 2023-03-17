@@ -20,7 +20,8 @@
   margin-left: 15%;
   margin-right: 15%;
   margin-top: 7%;
-
+  display: flex;
+  flex-direction: column;
   width: 500px;
   border: none;
   border: 1px solid rgb(214, 214, 214);
@@ -137,4 +138,48 @@
     visibility: hidden;
     /* justify-content: start; */
   }
+}
+.dropdown{
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  width: 280px;
+  margin-left: 15%;
+  margin-right: 15%;
+  margin-top: -13px;
+  width: 500px;
+  border: 0.1px solid grey;
+}
+.dropdown:empty{
+border: none;
+}
+.dropdown-row{
+  width: 280px;
+  cursor: pointer;
+  text-align: center;
+  margin: 2px 0;
+}
+input{
+  width: 220px;
+}
+.search-container{
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+}
+.search-innner{
+  display: flex;
+
+}
+.inndiv{
+  width: 495px;
+  height: 50px;
+  margin: 2px;
+  text-align: justify;
+}
+.simg{
+  margin-top: 6px;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
 }

@@ -7,7 +7,7 @@ import './Login.css'
 import App from '../App'
 import { db } from '../config'
 import { doc, setDoc ,getDoc } from "firebase/firestore"; 
-
+import {BrowserRouter as Router} from 'react-router-dom'
 export const Login = () => {
 
     const [username,setUsername]=useState("")
@@ -52,6 +52,8 @@ export const Login = () => {
               .catch((error) => alert(error.message));
     }
   return (
+    <Router>
+      
     <div>
       {user ? (
         <App />
@@ -182,5 +184,6 @@ export const Login = () => {
       )}
     </div>  
 
+    </Router>
   )
 }

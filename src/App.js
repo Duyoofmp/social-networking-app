@@ -4,20 +4,15 @@ import { signOut } from 'firebase/auth'
 import { auth,db} from './config'
 import Profile from './Profile';
 import {
-  Button,
-  Input,
-  Modal,
-  IconButton,
+ 
   Avatar,
   Link
 } from "@mui/material";
-import PublishIcon from '@mui/icons-material/Publish'
-import Tooltip from '@mui/material/Tooltip';
-import { HeartIcon, HomeIcon } from "@primer/octicons-react";
-import { ImCompass2 } from 'react-icons/im';
 import StickyBox from "react-sticky-box";
 import { onSnapshot,doc ,collection,query,where} from 'firebase/firestore';
 import './App.css'
+import { Routes,Route,useNavigate } from 'react-router-dom';
+import { Fprofile } from './components/Fprofile';
 
  
 
@@ -29,7 +24,7 @@ function App() {
   const [searchResults, setSearchResults] = useState([]);
   const [prfl, setPrfl] = useState(false);
 
-  
+  const navigate=useNavigate();
   const logout=()=>{
     signOut(auth).then(() => {
      setUser(null)
@@ -74,9 +69,12 @@ const unsubscribe = onSnapshot(q, (querySnapshot) => {
       setSearchResults(results);
     });
 }
-
+const prof=(event)=>{
+ navigate('/fprofile')
+}
 
   return (
+   
     <div className="app">
        {prfl ? (
         <Profile />
@@ -90,13 +88,22 @@ const unsubscribe = onSnapshot(q, (querySnapshot) => {
                 alt=""
               />
             </a>
-
+          <div className='search-container'>
+            <div className='search-inner'>
             <input type="text" onChange={handleSearch} className="app__headersearch" placeholder="Search" />
-            <ul>
+            <div className='dropdown'>
+              <div className='dropdown-row'>
         {searchResults.map((result) => (
-          <li key={result.uid}>{result.userName}</li>
+          
+          <><div className='inndiv' onClick={prof} key={result.uid}><img className='simg' src={result.profilePic}></img><span>{result.userName}</span></div>
+          <Routes>
+            <Route path="/fprofile" element={<Fprofile />} />
+          </Routes></>
         ))}
-      </ul>
+        </div>
+        </div>
+        </div>
+      </div>
             {user ? (
               <div className="app__headername">
                 <div className="app__headerbtns">
