@@ -1,15 +1,15 @@
+
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth'
 import React, { useState,useEffect } from 'react'
 import { auth } from '../config'
 import { Link } from '@mui/material'
 import createKeywords from '../keyword'
 import './Login.css'
-import App from '../App'
+import Home from './Home'
 import { db } from '../config'
-import { doc, setDoc ,getDoc } from "firebase/firestore"; 
-import {BrowserRouter as Router} from 'react-router-dom'
-export const Login = () => {
-
+import { doc, setDoc  } from "firebase/firestore"; 
+export const LLogin = () => {
+    
     const [username,setUsername]=useState("")
     const [email,setEmail]=useState("")
     const [name, setName] = useState("");
@@ -52,11 +52,9 @@ export const Login = () => {
               .catch((error) => alert(error.message));
     }
   return (
-    <Router>
-      
     <div>
       {user ? (
-        <App />
+        <Home />
       ) : (
         <div className="login">
           {LS ? (
@@ -182,8 +180,6 @@ export const Login = () => {
           </center>
         </div>
       )}
-    </div>  
-
-    </Router>
+    </div> 
   )
 }

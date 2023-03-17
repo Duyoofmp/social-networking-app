@@ -9,7 +9,6 @@ export default function Profile() {
       {/* navbar */}
       {/* user info & bio */}
       <div className="profile__prfl">
-        <h2 className="profile__usrnm">hello</h2>
         <Button className="profile__editprfl">Edit Profile</Button>
       </div>
 

@@ -1,0 +1,194 @@
+.follow{
+    background-color: transparent !important;
+    font-weight: 600 !important;
+    border: 1px solid #cfcfcf !important;
+    font-size: 14px;
+    text-transform: none !important;
+    padding: 0 15px !important;
+}
+.app{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  @import url(//db.onlinewebfonts.com/c/0376a58122a881d16a294512d3c947b1?family=ProximaNova-Regular);
+  
+  * {
+    font-family: ProximaNova-Regular;
+  }
+  
+  * {
+    margin: 0;
+  }
+  
+  .app__headersearch{
+    margin: 12px;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 7%;
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    border: none;
+    border: 1px solid rgb(214, 214, 214);
+    border-radius: 3px;
+    background-color: #FAFAFA !important;
+    text-align: center;
+    height: 30px;
+  }
+  
+  
+  .app__header {
+    /* object-fit: contain; */
+    background-color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    padding: 0 20px;
+    border-bottom: 1px solid lightgrey;
+    display: flex;
+    justify-content: center;
+  
+  }
+  
+  .app__headername{
+    display: flex;
+  }
+  
+  .app__headerImage{
+    padding: 12px 0;
+    align-content: center;
+    max-width: 100%;
+    object-fit: contain;
+    align-items: center;
+  }
+  
+  
+  
+  .app__user{
+    /* padding: 15px 10px; */
+    font-weight: 700;
+    font-size: 14px;
+    color: rgb(41, 41, 41);
+    padding: 30px 15px;
+    padding-bottom: 2px;
+  }
+  
+  .app__username{
+    font-weight: 500;
+    color: #808080;
+    /* border: 2px solid red; */
+    margin-left: 14px;
+    font-size: 15px;
+    /* margin-bottom: 10px; */
+  }
+  
+  .app__logout{
+    margin-top: 38px;
+    padding-left: 40px ;
+    font-size: 13px;
+    border: none;
+    background-color: transparent;
+    color: #00a2ff;
+    font-weight: 600;
+  }
+  
+  .App {
+    background-color: #fafafa;
+  }
+  
+  .app__signup{
+    display: flex;
+    flex-direction: column;
+  
+  }
+  
+  
+  
+  .app__userInfo{
+    display:flex;
+    margin-left: 30px;
+    margin-top: 30px;
+    margin-bottom: 250px;
+    position: sticky;
+    right: 0;
+  }
+  
+  .app__footer{
+    margin-left: 30px;
+    font-size: 12px;
+    color: #7e7e7e80;
+  }
+  
+  
+  .app__avatar{
+    height: 65px !important;
+    width: 65px !important;
+  }
+  
+  .app__avatarOut{
+    padding: 9px 0;
+  }
+  
+  @media only screen and (max-width: 750px) {
+    .app__headersearch{
+      visibility: hidden;
+      
+    }
+    .app__userInfo{
+      visibility: hidden;
+      padding: 0;
+      margin: 0;
+    }
+    .app__footer{
+      visibility: hidden;
+      /* justify-content: start; */
+    }
+  }
+  .dropdown{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    width: 280px;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: -13px;
+    width: 500px;
+    border: 0.1px solid grey;
+  }
+  .dropdown:empty{
+  border: none;
+  }
+  .dropdown-row{
+    width: 280px;
+    cursor: pointer;
+    text-align: center;
+    margin: 2px 0;
+  }
+  input{
+    width: 220px;
+  }
+  .search-container{
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+  }
+  .search-innner{
+    display: flex;
+  
+  }
+  .inndiv{
+    width: 495px;
+    height: 50px;
+    margin: 2px;
+    text-align: justify;
+  }
+  .simg{
+    margin-top: 6px;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+  }
+  
