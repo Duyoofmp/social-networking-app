@@ -10,6 +10,7 @@ import StickyBox from "react-sticky-box";
 import { onSnapshot,doc ,setDoc,deleteDoc} from 'firebase/firestore';
 import { auth,db} from '../config'
 import './Fprofile.css'
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -77,6 +78,10 @@ export const Fprofile = () => {
             console.log(error)
         }
     }
+    const navigate = useNavigate();
+    const goBack=()=>{
+        navigate(-1)
+    }
 
   return (
    
@@ -85,6 +90,7 @@ export const Fprofile = () => {
                 <StickyBox offsetTop={150} offsetBottom={100}>
                   <div className="app__userInfo">
                     <div className="app__avatarOut">
+                    <Button onClick={goBack} className="follow">Back</Button>
                       <Avatar src={dp} alt="h" className="app__avatar" />
                     </div>
                     <span>
