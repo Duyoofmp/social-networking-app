@@ -16,6 +16,8 @@ Overall, using ReactJS and Firebase allowed for a quick and efficient developmen
 ## Live Demo
 Click to view the Live Demo :- [https://social-networking-app-8abf1.web.app/](https://social-networking-app-8abf1.web.app/) 
 
+Click to see video of app :- [https://drivelink](https://drive.google.com/file/d/1BNjUlcy8c6IeRnXT2xbMVJ4JetFr9uvs/view?usp=share_link)
+
 
 ## Steps to run code
 
