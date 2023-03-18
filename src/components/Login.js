@@ -39,7 +39,7 @@ export const LLogin = () => {
             createKeywords(username,arr)
             createKeywords(name,arr)
             console.log(arr)
-            await setDoc(doc(db, "Users",user.uid), {profilePic:"https://tinyurl.com/3fmny3t8",name:name,userName:username,userId:user.uid,Keywords:arr,email:user.email}, { merge: true });
+            await setDoc(doc(db, "Users",user.uid), {Bio:"Upload your profile pic and add bio",profilePic:"https://tinyurl.com/3fmny3t8",name:name,userName:username,userId:user.uid,Keywords:arr,email:user.email}, { merge: true });
             console.log(user)
             user.userName=username
             setUser(user)

@@ -1,5 +1,90 @@
-body{margin-top:20px;}
-.avatar{
-width:200px;
-height:200px;
+body {
+	font-family: Arial, sans-serif;
+}
+.navbar {
+    background-color: gainsboro;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    padding: 0 20px;
+}
+
+.navbar__back-button {
+    background-color:#1abc9c;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 16px;
+}
+.navbar__back-button:hover {
+    background-color:#16a085;
+}
+
+.navbar__edit-profile {
+    font-size: 20px;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    margin: 0 auto;
+}
+.container {
+	width: 800px;
+	margin: 0 auto;
+    height: 100%;
+}
+
+h2 {
+	text-align: center;
+}
+
+form {
+	border: 1px solid #ccc;
+	padding: 20px;
+	background-color: #f7f7f7;
+}
+
+.form-group {
+	margin-bottom: 20px;
+}
+
+label {
+	display: block;
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+
+input[type="text"], textarea, input[type="file"] {
+	width: 100%;
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+}
+
+textarea {
+	height: 100px;
+}
+
+input[type="button"] {
+	background-color: #1abc9c;
+	color: white;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 15px;
+	cursor: pointer;
+	float: right;
+}
+
+input[type="button"]:hover {
+	background-color: #16a085;
+}
+.profile-picture img {
+	border-radius: 50%;
+	display: block;
+	height: 150px;
+	margin: 0 auto 20px;
+	width: 150px;
 }

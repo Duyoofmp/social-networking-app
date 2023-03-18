@@ -1,10 +1,16 @@
 import {React,useState,useEffect} from 'react'
 import {auth,db} from '../config'
 import { collection,getDocs,doc, getDoc } from "firebase/firestore";
+import './Friends.css'
+import { useNavigate } from "react-router-dom";
+import {
+  Button
+} from "@mui/material";
 
 export const Friends = () => {
   const [user, setUser] = useState(null);
   const [usersdata, setUsersData] = useState([]);
+  const navigate = useNavigate();
 
 
 
@@ -34,21 +40,44 @@ export const Friends = () => {
     });
     return () => unsubscribe();
   }, [user]);
-    
+  const prof = (uid) => {
+    console.log(uid);
+    navigate("/fprofile", { state: { uid: uid } });
+  };
+
   return (
-    <div>
-        
+    <div className='body'>
+       <nav>
+  <div className="logo">
+    <span>
+		<button  onClick={()=>navigate('/')} className="navbar__back-button">&lt; Back</button>
+
+    <h1>CareStack Social App</h1>
+    </span>
+  </div>
+ 
+</nav>
+                
             {usersdata.map(ele=>(
-            
-                <ul>
-                <li>{ele.name}</li>
-                <li>{ele.userName}</li>
-                <li>{ele.profilePic}</li>
-                <li>{ele.email}</li>
-                </ul>
+              
+               <div class="list-wrapper" ng-app="app" ng-controller="MainCtrl as ctrl">
+            <ul class="list">
+              <li class="list-item" onClick={() => {
+                          prof(ele.userId);
+                        }}>
+                <div>
+                  <img src={ele.profilePic} class="list-item-image"/>
+                </div>
+                <div class="list-item-content">
+                  <h4>{ele.name}</h4>
+                  <p>{ele.userName}</p>
+                </div>
+              </li>
+            </ul>
+            </div> 
                 
             ))}
-            
+        
     </div>
   )
 }

@@ -7,7 +7,7 @@ import {
   } from "@mui/material";
 
 import StickyBox from "react-sticky-box";
-import { onSnapshot,doc ,setDoc,deleteDoc} from 'firebase/firestore';
+import { onSnapshot,doc ,setDoc,deleteDoc, getDocs, collection} from 'firebase/firestore';
 import { auth,db} from '../config'
 import './Fprofile.css'
 import { useNavigate } from 'react-router-dom';
@@ -20,9 +20,12 @@ export const Fprofile = () => {
     const [uid, setUid] = useState(null);
 
     const [username, setUsername] = useState("");
+    const [bio, setBio] = useState("");
+
     const [name,setName]=useState("")
     const [dp, setDp] = useState("");
-    const [prfl, setPrfl] = useState("");
+    const [friendscount, setFriendsCount] = useState(0);
+
 
     const [mutuals, setMutuals] = useState(0);
     
@@ -45,7 +48,11 @@ export const Fprofile = () => {
                   console.log(dp);
                 }
             }));
-             
+            const docsOfUser = await getDocs(
+              collection(doc(db, "Users", uid), "Friends")
+            );
+            setFriendsCount(docsOfUser.docs.length);
+
             promise.push(onSnapshot(doc(db, "Users", uid,"Friends",user.uid), (snap) => {
                 if (snap.data()!==undefined) {
                     console.log(snap.data())    
@@ -84,21 +91,54 @@ export const Fprofile = () => {
         }
     }
     const navigate = useNavigate();
-    const goBack=()=>{
-        navigate(-1)
-    }
+    
     const seeMutuals=()=>{
         navigate("/mutuals",{state:{uid:uid}})
     }
+  
 
   return (
    
     <div>
-      <span>
+        <nav>
+  <div className="logo">
+    <span>
+		<button  onClick={()=>navigate('/')} className="navbar__back-button">&lt; Back</button>
+
+    <h1>CareStack Social App</h1>
+    </span>
+  </div>
+ 
+</nav>
+      <section className="profile">
+        <div className="profile-picture">
+          <img src={dp} alt="Profile Picture" />
+        </div>
+        <div className="profile-info">
+          <h1>{name}</h1>
+          <p className="username">{username}</p>
+          <p className="bio">
+           {bio}
+          </p>
+          <span><p onClick={seeMutuals} className="app__username"><b>see mutual friends</b></p> </span>
+          {followbtn?<a  onClick={followHandler} className="edit-profile">
+            follow
+          </a>:<a  onClick={followHandler} className="edit-profile">
+            unfollow
+          </a>}
+          <div className="stats">
+            <div className="friends">
+              <button className="count">{friendscount} Friends</button>
+              
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* <span>
                 <StickyBox offsetTop={150} offsetBottom={100}>
                   <div className="app__userInfo">
                     <div className="app__avatarOut">
-                    <Button onClick={goBack} className="follow">Back</Button>
+                    <Button onClick={()=>{navigate(-1)}} className="follow">Back</Button>
                       <Avatar src={dp} alt="h" className="app__avatar" />
                     </div>
                     <span>
@@ -123,7 +163,7 @@ export const Fprofile = () => {
                     </Link>{" "}
                   </footer>
                 </StickyBox>
-              </span>
+              </span> */}
     </div>
   )
   

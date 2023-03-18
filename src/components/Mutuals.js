@@ -1,20 +1,14 @@
 import { useEffect, useState } from "react";
 import * as React from 'react';
-
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import Divider from "@mui/material/Divider";
-import ListItemText from "@mui/material/ListItemText";
-import ListItemAvatar from "@mui/material/ListItemAvatar";
-import Avatar from "@mui/material/Avatar";
-import Typography from "@mui/material/Typography";
-import { useLocation } from "react-router-dom"
+import { useLocation ,useNavigate} from "react-router-dom"
 import { collection,getDocs,doc, getDoc } from "firebase/firestore";
 import {auth,db} from '../config';
 
 
 export default function Mutuals() {
  const [user, setUser] = useState(null);
+ const navigate = useNavigate();
+
 //   const [username, setUsername] = useState("");
 //   const [profilepic, setProfilepic] = useState("");
 const [arr,setArr]=useState([])
@@ -53,9 +47,43 @@ const userData=[];
       }
     });
   },[]);
+  const prof = (uid) => {
+    console.log(uid);
+    navigate("/fprofile", { state: { uid: uid } });
+  };
   return (
    <div>
-   
+     <nav>
+  <div className="logo">
+    <span>
+		<button  onClick={()=>navigate('/')} className="navbar__back-button">&lt; Back</button>
+
+    <h1>CareStack Social App</h1>
+    </span>
+  </div>
+ 
+</nav>
+                
+            {arr.map(ele=>(
+              
+               <div class="list-wrapper" ng-app="app" ng-controller="MainCtrl as ctrl">
+            <ul class="list">
+              <li class="list-item" onClick={() => {
+                          prof(ele.userId);
+                        }}>
+                <div>
+                  <img src={ele.profilePic} class="list-item-image"/>
+                </div>
+                <div class="list-item-content">
+                  <h4>{ele.name}</h4>
+                  <p>{ele.userName}</p>
+                </div>
+              </li>
+            </ul>
+            </div> 
+                
+            ))}
+{/*    
     <List sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}>
   {arr.map((result,index) => (
     
@@ -77,7 +105,7 @@ const userData=[];
     
     </>
   ))}
-</List> 
+</List>  */}
         </div>
     
   
