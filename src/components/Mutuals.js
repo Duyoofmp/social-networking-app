@@ -27,6 +27,8 @@ const userData=[];
         const docsOfFrnd = await getDocs(collection(doc(db, "Users", location.state.uid), "Friends"));
         if(docsOfFrnd.docs.length!==0 && docsOfUser.docs.length!==0 ){
             console.log("keerii")
+            console.log(user)
+
             docsOfFrnd.forEach(ele1 => {    
                 console.log(ele1.id)
                 docsOfUser.forEach(ele2 => ele1.id === ele2.id  && ids.push(ele1.id));
@@ -64,7 +66,7 @@ const userData=[];
  
 </nav>
                 
-            {arr.map(ele=>(
+            {arr.length!==0?arr.map(ele=>(
               
                <div class="list-wrapper" ng-app="app" ng-controller="MainCtrl as ctrl">
             <ul class="list">
@@ -72,7 +74,7 @@ const userData=[];
                           prof(ele.userId);
                         }}>
                 <div>
-                  <img src={ele.profilePic} class="list-item-image"/>
+                  <img src={ele.profilePic} alt="profPic" class="list-item-image"/>
                 </div>
                 <div class="list-item-content">
                   <h4>{ele.name}</h4>
@@ -82,7 +84,7 @@ const userData=[];
             </ul>
             </div> 
                 
-            ))}
+            )):<center><h1>no mutual friends</h1></center>}
 {/*    
     <List sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}>
   {arr.map((result,index) => (

@@ -97,20 +97,31 @@ nav {
 }
 
 .stats .friends {
-	text-align: center;
-  background-color: rgb(218, 216, 216);
-  border-radius: 15px;
+  background-color: #1abc9c;
+	border-radius: 3px;
+	color: #fff;
+	display: inline-block;
+	margin: 0 0 20px;
+	padding: 10px 20px;
   cursor: pointer;
+	text-decoration: none;
   
 }
 .stats .friends:hover {
-  background-color: rgb(136, 135, 135);  
+  background-color: #16a085;
+ 
 }
 .stats .friends button.count {
 	font-size: 20px;
   border: none;
 	margin: 0;
 	padding: 0;
+ background-color: #16a085;
+  cursor: pointer;
+}
+.stats .friends button.count :hover {
+  background-color:#1abc9c;
+	
 }
 
 .dropdown{

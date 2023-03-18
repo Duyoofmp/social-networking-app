@@ -3,9 +3,7 @@ import {auth,db} from '../config'
 import { collection,getDocs,doc, getDoc } from "firebase/firestore";
 import './Friends.css'
 import { useNavigate } from "react-router-dom";
-import {
-  Button
-} from "@mui/material";
+
 
 export const Friends = () => {
   const [user, setUser] = useState(null);
@@ -50,7 +48,7 @@ export const Friends = () => {
        <nav>
   <div className="logo">
     <span>
-		<button  onClick={()=>navigate('/')} className="navbar__back-button">&lt; Back</button>
+		<button  onClick={()=>navigate(-1)} className="navbar__back-button">&lt; Back</button>
 
     <h1>CareStack Social App</h1>
     </span>
@@ -58,7 +56,8 @@ export const Friends = () => {
  
 </nav>
                 
-            {usersdata.map(ele=>(
+            {usersdata.length!==0?
+            usersdata.map(ele=>(
               
                <div class="list-wrapper" ng-app="app" ng-controller="MainCtrl as ctrl">
             <ul class="list">
@@ -66,7 +65,7 @@ export const Friends = () => {
                           prof(ele.userId);
                         }}>
                 <div>
-                  <img src={ele.profilePic} class="list-item-image"/>
+                  <img alt="dp" src={ele.profilePic} class="list-item-image"/>
                 </div>
                 <div class="list-item-content">
                   <h4>{ele.name}</h4>
@@ -76,7 +75,7 @@ export const Friends = () => {
             </ul>
             </div> 
                 
-            ))}
+            )):<center><h1>no friends ...add new friends</h1></center>}
         
     </div>
   )

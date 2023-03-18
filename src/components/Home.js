@@ -55,7 +55,7 @@ function Home() {
   }, [user]);
 
   const handleSearch = (event) => {
-    const searchQuery = event.target.value;
+    const searchQuery = event.target.value.toLowerCase();
     const q = query(
       collection(db, "Users"),
       where("Keywords", "array-contains", searchQuery)
@@ -97,7 +97,7 @@ navigate('/editProfile')
                         }}
                         key={result.uid}
                       >
-                        <img className="simg" src={result.profilePic}></img>
+                        <img className="simg" alt="dp" src={result.profilePic}></img>
                         <span>{result.userName}</span>
                       </div>
                     ))}

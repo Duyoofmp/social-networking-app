@@ -1,12 +1,6 @@
 import { useLocation } from "react-router-dom"
 import React, { useState,useEffect } from 'react'
-import {
-    Button,
-    Avatar,
-    Link
-  } from "@mui/material";
 
-import StickyBox from "react-sticky-box";
 import { onSnapshot,doc ,setDoc,deleteDoc, getDocs, collection} from 'firebase/firestore';
 import { auth,db} from '../config'
 import './Fprofile.css'
@@ -27,7 +21,6 @@ export const Fprofile = () => {
     const [friendscount, setFriendsCount] = useState(0);
 
 
-    const [mutuals, setMutuals] = useState(0);
     
     const [followbtn,setFollowBtn]=useState(true)
     useEffect( () => {
@@ -45,6 +38,8 @@ export const Fprofile = () => {
                   setDp(snap.data().profilePic);
                   setUsername(snap.data().userName);
                   setName(snap.data().name)
+                  setBio(snap.data().Bio)
+
                   console.log(dp);
                 }
             }));
@@ -112,7 +107,7 @@ export const Fprofile = () => {
 </nav>
       <section className="profile">
         <div className="profile-picture">
-          <img src={dp} alt="Profile Picture" />
+          <img src={dp} alt="Dp" />
         </div>
         <div className="profile-info">
           <h1>{name}</h1>
@@ -134,36 +129,7 @@ export const Fprofile = () => {
           </div>
         </div>
       </section>
-      {/* <span>
-                <StickyBox offsetTop={150} offsetBottom={100}>
-                  <div className="app__userInfo">
-                    <div className="app__avatarOut">
-                    <Button onClick={()=>{navigate(-1)}} className="follow">Back</Button>
-                      <Avatar src={dp} alt="h" className="app__avatar" />
-                    </div>
-                    <span>
-                      <h3 className="app__user">
-                        <a onClick={() => setPrfl(true)}>
-                          {user ? username : "dummy"}
-                        </a>&nbsp;&nbsp;
-                        {followbtn? <Button onClick={followHandler} className="follow">follow</Button>: <Button onClick={followHandler} className="follow">unfollow</Button> }
-                      </h3>{""}
-                      <p className="app__username">{name}</p>
-                       <span><p onClick={seeMutuals} className="app__username"><b>see mutual friends</b></p> </span>
-                    </span>
-                  </div>
-                  <footer className="app__footer">
-                    © 2023 carestack BY {""}
-                    <Link
-                      style={{ color: "#7e7e7e80" }}
-                      href="https://github.com/Duyoofmp"
-                      target="blank"
-                    >
-                      <strong>Duyoof</strong>
-                    </Link>{" "}
-                  </footer>
-                </StickyBox>
-              </span> */}
+     
     </div>
   )
   
